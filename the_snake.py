@@ -41,9 +41,8 @@ clock = pygame.time.Clock()
 
 # Тут опишите все классы игры.
 class GameObject:
-    """
-    Docstring для GameObject
-    """
+    """Докстринг для GameObject"""
+
     def __init__(self, body_color: tuple = (255, 0, 0),
                  position: tuple = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
                  ):
@@ -53,16 +52,13 @@ class GameObject:
         self.direction = None  # направление движения
 
         def draw(self):
-            """
-            Docstring для draw
-            """
+            """Докстринг для draw"""
             pass
 
 
 class Apple(GameObject):
-    """
-    Docstring для Apple
-    """
+    """Докстринг для Apple"""
+
     def __init__(self, body_color: tuple = (255, 0, 0),
                  position: tuple = ((SCREEN_WIDTH // 2), (SCREEN_HEIGHT // 2))
                  ):
@@ -71,9 +67,7 @@ class Apple(GameObject):
         self.position = self.random_position()
 
     def random_position(self):
-        """
-        Docstring для random_position
-        """
+        """Докстринг для random_position"""
         rand_x = randint(0, GRID_WIDTH - 1) * GRID_SIZE
         rand_y = randint(0, GRID_HEIGHT - 1) * GRID_SIZE
         position = (rand_x, rand_y)
@@ -88,9 +82,8 @@ class Apple(GameObject):
 
 
 class Snake(GameObject):
-    """
-    Docstring для Snake
-    """
+    """Докстринг для Snake"""
+
     def __init__(self, position=(0, 0), length: int = 1,
                  positions=None,
                  direction: tuple = RIGHT, next_direction: tuple = None,
@@ -104,23 +97,17 @@ class Snake(GameObject):
         self.last = self.positions[-1]
 
     def update_direction(self):
-        """
-        Docstring для update_direction
-        """
+        """Докстринг для update_direction"""
         if self.next_direction:
             self.direction = self.next_direction
             self.next_direction = None
 
     def get_head_position(self):
-        """
-        Docstring для get_head_position
-        """
+        """Докстринг для get_head_position"""
         return self.positions[0]
 
     def reset(self):
-        """
-        Docstring для reset
-        """
+        """Докстринг для reset"""
         self.length = 1
         self.positions = [(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)]
         self.direction = RIGHT
@@ -128,9 +115,7 @@ class Snake(GameObject):
         screen.fill(BOARD_BACKGROUND_COLOR)
 
     def move(self):
-        """
-        Docstring для move
-        """
+        """Докстринг для move"""
         head = self.get_head_position()
         dx, dy = self.direction
         new_head = ((head[0] + dx * GRID_SIZE) % SCREEN_WIDTH,
@@ -143,9 +128,7 @@ class Snake(GameObject):
                 self.last = self.positions.pop()
 
     def draw(self):
-        """
-        Docstring для draw
-        """
+        """Докстринг для draw"""
         for position in self.positions[:-1]:
             rect = (pygame.Rect(position, (GRID_SIZE, GRID_SIZE)))
             pygame.draw.rect(screen, self.body_color, rect)
@@ -163,9 +146,7 @@ class Snake(GameObject):
 
 
 def handle_keys(game_object):
-    """
-    Docstring для handle_keys
-    """
+    """Докстринг для handle_keys"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -182,9 +163,7 @@ def handle_keys(game_object):
 
 
 def main():
-    """
-    Docstring для main
-    """
+    """Докстринг для main"""
     clock = pygame.time.Clock()
     global SPEED
     # Инициализация PyGame:
