@@ -51,9 +51,9 @@ class GameObject:
         self.next_direction = None  # направление движения
         self.direction = None  # направление движения
 
-        def draw(self):
-            """Докстринг для draw"""
-            pass
+    def draw(self):
+        """Докстринг для draw"""
+        pass
 
 
 class Apple(GameObject):
@@ -64,10 +64,10 @@ class Apple(GameObject):
                  ):
         super().__init__(body_color, position)
         self.body_color = APPLE_COLOR
-        self.position = self.random_position()
+        self.position = self.randomize_position()
 
-    def random_position(self):
-        """Докстринг для random_position"""
+    def randomize_position(self):
+        """Докстринг для randomize_position"""
         rand_x = randint(0, GRID_WIDTH - 1) * GRID_SIZE
         rand_y = randint(0, GRID_HEIGHT - 1) * GRID_SIZE
         position = (rand_x, rand_y)
@@ -181,7 +181,7 @@ def main():
         if snake.get_head_position() == apple.position:
             snake.length += 1
             if apple.position in snake.positions:
-                apple.random_position()
+                apple.randomize_position()
 
         pygame.display.update()
 
