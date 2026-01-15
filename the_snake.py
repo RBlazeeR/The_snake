@@ -164,8 +164,6 @@ def handle_keys(game_object):
 
 def main():
     """Докстринг для main"""
-    clock = pygame.time.Clock()
-    global SPEED
     # Инициализация PyGame:
     pygame.init()
     snake = Snake()
